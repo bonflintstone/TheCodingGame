@@ -1,22 +1,11 @@
 <template>
-  <div id="app">
-    <p>{{ message }}</p>
-  </div>
+  <Game />
 </template>
 
 <script>
+import Game from 'components/game'
+
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
-    }
-  }
+  components: { Game }
 }
 </script>
-
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
-</style>
