@@ -1,8 +1,11 @@
 <template>
-  <h1>What up</h1>
+  <v-card>
+    <v-card-title>
+      What up
+    </v-card-title>
+  </v-card>
 </template>
 
 <script>
-  export default {
-  }
+export default {}
 </script>

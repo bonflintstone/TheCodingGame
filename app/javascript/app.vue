@@ -1,11 +1,14 @@
 <template>
-  <Game />
+  <v-app dark>
+    <Navbar />
+    <router-view />
+  </v-app>
 </template>
 
 <script>
-import Game from 'components/game'
+import Navbar from 'components/navbar'
 
 export default {
-  components: { Game }
+  components: { Navbar }
 }
 </script>

@@ -1,13 +1,20 @@
 {
   "name": "myapp",
   "private": true,
+  "scripts": {
+    "lint": "prettier --write 'app/**/*[vue,js]'"
+  },
   "dependencies": {
     "@rails/webpacker": "3.5",
     "vue": "^2.6.7",
     "vue-loader": "14.2.2",
-    "vue-template-compiler": "^2.6.7"
+    "vue-router": "^3.0.2",
+    "vue-template-compiler": "^2.6.7",
+    "vuetify": "^1.5.3"
   },
   "devDependencies": {
+    "material-design-icons-iconfont": "^4.0.5",
+    "prettier": "^1.16.4",
     "webpack-dev-server": "2.11.2"
   }
 }
