@@ -17,7 +17,6 @@ export default {
       return createTwoFilesPatch('Before', 'After', this.source1, this.source2)
     },
     diffHtml() {
-      console.log(this.diff)
       return Diff2Html.getPrettyHtml(this.diff, {
         inputFormat: 'diff',
         showFiles: false,

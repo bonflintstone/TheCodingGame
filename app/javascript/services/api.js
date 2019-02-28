@@ -12,6 +12,14 @@ const levels = [
             choices: [{ text: 'Yes' }, { text: 'No' }, { text: 'Who Cares' }]
           },
           {
+            text: 'Does the change make it worse?',
+            choices: [{ text: 'Yes' }, { text: 'No' }, { text: 'Who Cares' }]
+          },
+          {
+            text: 'Does the change make it great again?',
+            choices: [{ text: 'Yes' }, { text: 'No' }, { text: 'Who Cares' }]
+          },
+          {
             text: 'How many lines are there in total?',
             choices: [{ text: '1' }, { text: '2' }, { text: '3' }]
           }
