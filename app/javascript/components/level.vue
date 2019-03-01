@@ -1,10 +1,12 @@
 <template>
   <v-card>
-    <v-card-title> Level {{ $route.params.levelNumber }} </v-card-title>
+    <v-card-title> Level {{ this.level.name }} </v-card-title>
     <v-card-text>
-      {{ this.level.name }}
-      <Diff :source1="currentStage.source1" :source2="currentStage.source2" />
-      <Questions :questions="currentStage.questions" />
+      <Diff
+        :source1="currentStep.file1_content"
+        :source2="currentStep.file2_content"
+      />
+      <Questions :questions="currentStep.questions" />
     </v-card-text>
   </v-card>
 </template>
@@ -13,19 +15,17 @@
 import Diff from './diff'
 import Questions from './questions'
 
-import { getLevels } from '../services/api'
-
 export default {
   components: { Diff, Questions },
   props: {
     level: Object
   },
   data: () => ({
-    stageNumber: 0
+    stepNumber: 0
   }),
   computed: {
-    currentStage() {
-      return this.level.stages[0]
+    currentStep() {
+      return this.level.steps[0]
     }
   }
 }

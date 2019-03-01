@@ -1,5 +1,5 @@
 <template>
-  <div v-html="diffHtml" />
+  <v-card v-html="diffHtml" />
 </template>
 
 <script>

@@ -9,10 +9,10 @@
       <v-list-tile
         exact
         v-for="level in levels"
-        :to="`${level.id}`"
-        :key="level.id"
+        :to="`${level.identifier}`"
+        :key="level.identifier"
       >
-        {{ level.name }}
+        {{ level.identifier }}
       </v-list-tile>
     </v-list>
   </v-navigation-drawer>
@@ -39,7 +39,7 @@ export default {
     }
   },
   mounted() {
-    getLevels().then(levels => (this.levels = levels))
+    getLevels().then(result => (this.levels = result.levels))
   }
 }
 </script>

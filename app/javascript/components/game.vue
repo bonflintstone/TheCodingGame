@@ -23,7 +23,9 @@ export default {
     levelNumber: {
       immediate: true,
       handler() {
-        getLevel(this.levelNumber).then(level => (this.level = level))
+        getLevel(this.levelNumber).then(
+          response => (this.level = response.level)
+        )
       }
     }
   }

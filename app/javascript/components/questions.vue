@@ -26,7 +26,7 @@
           <v-card-text>
             <v-radio-group v-model="question.chosen">
               <v-radio
-                v-for="choice, i in question.choices"
+                v-for="(choice, i) in question.choices"
                 :key="`${question.text} ${choice.text} content ${i}`"
                 :label="choice.text"
                 :value="choice.text"
@@ -35,7 +35,7 @@
           </v-card-text>
 
           <v-card-actions>
-            <v-btn :disabled="i <= 1" @click="progress = i">Back</v-btn>
+            <v-btn :disabled="i < 1" @click="progress = i">Back</v-btn>
             <v-btn v-if="i < questions.length - 1" @click="progress = i + 2">
               Next
             </v-btn>
