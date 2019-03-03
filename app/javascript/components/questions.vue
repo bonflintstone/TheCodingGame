@@ -55,12 +55,12 @@ export default {
     questions: Array
   },
   data: () => ({
-    progress: 0,
+    progress: 1,
     answers: []
   }),
   watch: {
     questions() {
-      this.progress = 0
+      this.progress = 1
       this.answers = []
     }
   }

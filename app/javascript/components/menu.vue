@@ -13,7 +13,7 @@
         <v-list-tile
           exact
           v-for="level in levels"
-          :to="`${level.identifier}`"
+          :to="`levels/${level.identifier}`"
           :key="level.identifier"
         >
           {{ level.identifier }}
