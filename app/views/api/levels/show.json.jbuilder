@@ -1,9 +1,9 @@
 json.level do
   json.identifier @level.identifier
   json.level_intro_message @level.level_intro_message
-  json.game_conclusion_message @level.game_conclusion_message
+  json.level_conclusion_message @level.level_conclusion_message
   json.show_score_conclusion_level @level.show_score_conclusion_level
-  json.next_leves @level.next_level
+  json.next_level @level.next_level
 
   json.steps @level.steps do |step|
     json.identifier step.identifier

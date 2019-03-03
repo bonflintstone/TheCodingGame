@@ -17,7 +17,7 @@
       {
         "id": "level0",
         "levelIntroMessage": "First level!",
-        "gameConclusionMessage": "You have been amazing!",
+        "levelConclusionMessage": "You have been amazing!",
         "showScoreConclusionLevel": false,
         "nextLevel": "level1",
         "steps": [
@@ -86,6 +86,71 @@
               },
               {
                 "question": "abcsde.java is much faster than xyz.java (this should be treated as HTML code",
+                "answers": [
+                  {
+                    "text": "Yay!",
+                    "points": 2
+                  },
+                  {
+                    "text": "Maybe!",
+                    "points": 1
+                  },
+                  {
+                    "text": "Don't know",
+                    "points": 0
+                  },
+                  {
+                    "text": "Maybe not!",
+                    "points": -1
+                  },
+                  {
+                    "text": "Nope!",
+                    "points": -2
+                  }
+                ],
+                "correctAnswer": "Yay!"
+              }
+            ]
+          },
+          {
+            "id": "step1",
+            "file1": {
+              "path": "./files/abcsde.java",
+              "clarificationUrl": "http://www.github.com/blahblahblah"
+            },
+            "file2": {
+              "path": "./files/abcsde.java",
+              "clarificationUrl": "http://www.github.com/blahblahblah"
+            },
+            "questions": [
+              {
+                "question": "abcsde.java is much slower than xyz.java (this should be treated as HTML code)",
+                "answers": [
+                  {
+                    "text": "Yay!",
+                    "points": 2
+                  },
+                  {
+                    "text": "Maybe!",
+                    "points": 1
+                  },
+                  {
+                    "text": "Don't know",
+                    "points": 0
+                  },
+                  {
+                    "text": "Maybe not!",
+                    "points": -1
+                  },
+                  {
+                    "text": "Nope!",
+                    "points": -2
+                  }
+                ],
+                "correctAnswer": "Yay!"
+              },
+              {
+                "question": "abcsde.java is much slower than xyz.java (this should be treated as HTML code)",
                 "answers": [
                   {
                     "text": "Yay!",

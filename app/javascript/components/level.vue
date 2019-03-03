@@ -1,12 +1,29 @@
 <template>
   <v-card>
-    <v-card-title> Level {{ this.level.name }} </v-card-title>
+    <v-card-title>
+      Level {{ this.level.identifier }}
+
+      <br />
+
+      Step {{ stepNumber + 1 }} out of {{ stepCount }}
+    </v-card-title>
     <v-card-text>
-      <Diff
-        :source1="currentStep.file1_content"
-        :source2="currentStep.file2_content"
-      />
-      <Questions :questions="currentStep.questions" />
+      <template v-if="stepNumber === -1">
+        Get Started
+        <v-btn @click="stepNumber = 0">
+          Start
+        </v-btn>
+      </template>
+      <template v-if="stepNumber >= 0 && stepNumber < stepCount">
+        <Diff
+          :source1="currentStep.file1_content"
+          :source2="currentStep.file2_content"
+        />
+        <Questions @submit="submit" :questions="currentStep.questions" />
+      </template>
+      <template v-if="stepNumber >= stepCount">
+        Finished!
+      </template>
     </v-card-text>
   </v-card>
 </template>
@@ -21,11 +38,21 @@ export default {
     level: Object
   },
   data: () => ({
-    stepNumber: 0
+    stepNumber: -1
   }),
   computed: {
     currentStep() {
-      return this.level.steps[0]
+      return this.level.steps[this.stepNumber]
+    },
+    stepCount() {
+      return this.level.steps.length
+    }
+  },
+  methods: {
+    submit(answers) {
+      console.log(answers)
+
+      this.stepNumber++
     }
   }
 }

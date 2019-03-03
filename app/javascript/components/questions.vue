@@ -5,7 +5,7 @@
         v-for="(question, i) in questions"
         :key="`${question.text} step ${i}`"
         :step="i + 1"
-        :complete="question.chosen"
+        :complete="answers[i] != undefined"
         @click="progress = i + 1"
         style="cursor: pointer"
       >
@@ -24,12 +24,12 @@
           </v-card-title>
 
           <v-card-text>
-            <v-radio-group v-model="question.chosen">
+            <v-radio-group v-model="answers[i]">
               <v-radio
-                v-for="(choice, i) in question.choices"
-                :key="`${question.text} ${choice.text} content ${i}`"
-                :label="choice.text"
-                :value="choice.text"
+                v-for="(answer, i) in question.answers"
+                :key="`${question.text} ${answer.text} content ${i}`"
+                :label="answer.text"
+                :value="answer.text"
               />
             </v-radio-group>
           </v-card-text>
@@ -39,7 +39,9 @@
             <v-btn v-if="i < questions.length - 1" @click="progress = i + 2">
               Next
             </v-btn>
-            <v-btn v-else color="primary" @click="">Submit</v-btn>
+            <v-btn v-else color="primary" @click="$emit('submit', answers)">
+              Submit
+            </v-btn>
           </v-card-actions>
         </v-card>
       </v-stepper-content>
@@ -53,7 +55,14 @@ export default {
     questions: Array
   },
   data: () => ({
-    progress: 0
-  })
+    progress: 0,
+    answers: []
+  }),
+  watch: {
+    questions() {
+      this.progress = 0
+      this.answers = []
+    }
+  }
 }
 </script>

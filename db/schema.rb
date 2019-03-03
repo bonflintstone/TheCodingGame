@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_095850) do
   create_table "levels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "identifier"
     t.string "level_intro_message"
-    t.string "game_conclusion_message"
+    t.string "level_conclusion_message"
     t.string "show_score_conclusion_level"
     t.string "next_level"
     t.datetime "created_at", null: false

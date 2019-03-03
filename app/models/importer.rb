@@ -24,7 +24,7 @@ class Importer
       dbLevel = Level.create!(
         identifier: level[:id],
         level_intro_message: level[:levelIntroMessage],
-        game_conclusion_message: level[:gameConclusionMessage],
+        level_conclusion_message: level[:levelConclusionMessage],
         show_score_conclusion_level: level[:showScoreConclusionLevel],
         next_level: level[:nextLevel]
       )
@@ -34,17 +34,17 @@ class Importer
           identifier: step[:id],
           level: dbLevel,
           file1_name: step[:file1][:path],
-          file1_content: step[:file1][:path],
-          file1_clarification: step[:file1][:clarificationUrl],
+          file1_content: read_file('./app/models/answer.rb'),
+          file1_clarification: step[:file1][:path],
           file2_name: step[:file2][:path],
-          file2_content: step[:file2][:path],
-          file2_clarification: step[:file2][:clarificationUrl],
+          file2_content: read_file('./app/models/question.rb'),
+          file2_clarification: step[:file2][:path]
         )
 
         step.fetch(:questions, []).each do |question|
           dbQuestion = Question.create!(
             step: dbStep,
-            text: question[:text],
+            text: question[:question],
             correct_answer: question[:correctAnswer]
           )
 
@@ -58,5 +58,9 @@ class Importer
         end
       end
     end
+  end
+
+  def read_file(path)
+    File.read(path)
   end
 end
