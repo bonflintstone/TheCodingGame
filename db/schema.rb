@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2019_03_01_095850) do
 
-  create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
     t.string "text"
     t.integer "points"
     t.datetime "created_at", null: false
@@ -21,14 +24,14 @@ ActiveRecord::Schema.define(version: 2019_03_01_095850) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
-  create_table "game_configs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "game_configs", force: :cascade do |t|
     t.string "key"
     t.string "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "levels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "levels", force: :cascade do |t|
     t.string "identifier"
     t.string "level_intro_message"
     t.string "level_conclusion_message"
@@ -38,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_095850) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "questions", force: :cascade do |t|
     t.string "text"
     t.string "correct_answer"
     t.datetime "created_at", null: false
@@ -47,7 +50,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_095850) do
     t.index ["step_id"], name: "index_questions_on_step_id"
   end
 
-  create_table "steps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "steps", force: :cascade do |t|
     t.string "identifier"
     t.string "file1_name"
     t.string "file1_content"
