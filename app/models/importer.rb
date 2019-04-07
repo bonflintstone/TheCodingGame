@@ -33,10 +33,10 @@ class Importer
         dbStep = Step.create!(
           identifier: step[:id],
           level: dbLevel,
-          file1_name: step[:file1][:path],
+          file1_name: step[:file1][:label],
           file1_content: read_file('./app/models/answer.rb'),
           file1_clarification: step[:file1][:path],
-          file2_name: step[:file2][:path],
+          file2_name: step[:file2][:label],
           file2_content: read_file('./app/models/question.rb'),
           file2_clarification: step[:file2][:path]
         )

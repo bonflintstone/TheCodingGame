@@ -10,6 +10,7 @@
         "password": "456"
       }
     ],
+    "game_name": "The Coding Game",
     "gameIntroMessage": "Welcome to our fantastic game! (this should be treated as HTML code)",
     "gameConclusionMessage": "Thanks for participating! (this should be treated as HTML code)",
     "showScoreConclusionGame": false,
@@ -24,10 +25,12 @@
           {
             "id": "step0",
             "file1": {
+              "label": "Some file",
               "path": "./files/abcsde.java",
               "clarificationUrl": "http://www.github.com/blahblahblah"
             },
             "file2": {
+              "label": "Another File",
               "path": "./files/abcsde.java",
               "clarificationUrl": "http://www.github.com/blahblahblah"
             },
@@ -115,10 +118,12 @@
           {
             "id": "step1",
             "file1": {
+              "label": "waht",
               "path": "./files/abcsde.java",
               "clarificationUrl": "http://www.github.com/blahblahblah"
             },
             "file2": {
+              "label": "pu",
               "path": "./files/abcsde.java",
               "clarificationUrl": "http://www.github.com/blahblahblah"
             },
