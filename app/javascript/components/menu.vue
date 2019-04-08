@@ -1,24 +1,28 @@
 <template>
   <v-card>
-    <v-card-title>
-      {{ status.gameIntroMessage }}
-    </v-card-title>
-    <v-card-text>
-      <v-list>
-        <v-list-tile>
-          <v-list-tile-title>
-            Select Level
-          </v-list-tile-title>
-        </v-list-tile>
-        <v-list-tile
-          exact
-          v-for="level in levels"
-          :to="`/levels/${level.identifier}`"
-          :key="level.identifier"
-        >
-          {{ level.identifier }}
-        </v-list-tile>
-      </v-list>
+    <v-card-text v-if="status.currentLevel">
+      <template v-if="status.levelStatus === 'new'">
+        <p>{{ status.gameIntroMessage }}</p>
+        <v-btn :to="`/levels/${status.currentLevel.id}`">
+          Get started with the first level!
+        </v-btn>
+      </template>
+      <template v-if="status.levelStatus === 'finished'">
+        <p>{{ status.gameConclusionMessage }}</p>
+      </template>
+      <template v-if="status.levelStatus === 'inLevel'">
+        You still got work todo in level
+
+        <v-btn :to="`/levels/${status.currentLevel.id}`">
+          {{ status.currentLevel.name }}
+        </v-btn>
+      </template>
+      <template v-if="status.levelStatus === 'betweenLevels'">
+        Get started with level
+        <v-btn :to="`/levels/${status.currentLevel.id}`">
+          {{ status.currentLevel.name }}
+        </v-btn>
+      </template>
     </v-card-text>
   </v-card>
 </template>
