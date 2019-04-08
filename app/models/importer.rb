@@ -29,9 +29,10 @@ class Importer
   end
 
   def import_game
-    @game_config.fetch(:levels, []).each do |level|
+    @game_config.fetch(:levels, []).each_with_index do |level, index|
       dbLevel = Level.create!(
         identifier: level[:id],
+        order: index,
         level_intro_message: level[:levelIntroMessage],
         level_conclusion_message: level[:levelConclusionMessage],
         show_score_conclusion_level: level[:showScoreConclusionLevel],
@@ -43,9 +44,10 @@ class Importer
   end
 
   def import_steps(level, dbLevel)
-    level.fetch(:steps, []).each do |step|
+    level.fetch(:steps, []).each_with_index do |step, index|
       dbStep = Step.create!(
         identifier: step[:id],
+        order: index,
         level: dbLevel,
         file1_name: step[:file1][:label],
         file1_content: File.read('./app/models/answer.rb'),
@@ -60,9 +62,10 @@ class Importer
   end
 
   def import_questions(step, dbStep)
-    step.fetch(:questions, []).each do |question|
+    step.fetch(:questions, []).each_with_index do |question, index|
       dbQuestion = Question.create!(
         step: dbStep,
+        order: index,
         text: question[:question],
         correct_answer: question[:correctAnswer]
       )
