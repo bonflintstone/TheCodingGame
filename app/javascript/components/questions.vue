@@ -21,6 +21,7 @@
         <v-card>
           <v-card-title>
             {{ question.text }}
+            {{ question.done }}
           </v-card-title>
 
           <v-card-text>
@@ -29,7 +30,7 @@
                 v-for="(answer, i) in question.answers"
                 :key="`${question.text} ${answer.text} content ${i}`"
                 :label="answer.text"
-                :value="answer.text"
+                :value="answer.id"
               />
             </v-radio-group>
           </v-card-text>

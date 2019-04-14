@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 2019_04_08_092321) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
+  create_table "answers_results", id: false, force: :cascade do |t|
+    t.bigint "result_id", null: false
+    t.bigint "answer_id", null: false
+    t.index ["answer_id"], name: "index_answers_results_on_answer_id"
+    t.index ["result_id"], name: "index_answers_results_on_result_id"
+  end
+
   create_table "game_configs", force: :cascade do |t|
     t.string "key"
     t.string "value"
@@ -54,13 +61,11 @@ ActiveRecord::Schema.define(version: 2019_04_08_092321) do
 
   create_table "results", force: :cascade do |t|
     t.integer "score"
-    t.bigint "question_id"
-    t.bigint "answer_id"
+    t.bigint "step_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["answer_id"], name: "index_results_on_answer_id"
-    t.index ["question_id"], name: "index_results_on_question_id"
+    t.index ["step_id"], name: "index_results_on_step_id"
     t.index ["user_id"], name: "index_results_on_user_id"
   end
 

@@ -28,6 +28,7 @@
 <script>
 import Diff from './diff'
 import Questions from './questions'
+import { saveResult } from '../services/api'
 
 export default {
   components: { Diff, Questions },
@@ -46,10 +47,9 @@ export default {
     }
   },
   methods: {
-    submit(answers) {
-      console.log(answers)
-
-      this.stepNumber++
+    submit(answerIds) {
+      saveResult(this.currentStep.id, answerIds)
+        .then(() => this.stepNumber++)
     }
   }
 }

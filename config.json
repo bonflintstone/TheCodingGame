@@ -185,7 +185,173 @@
         ]
       },
       {
-        "id": "level1"
+        "id": "level1",
+        "levelIntroMessage": "First level!",
+        "levelConclusionMessage": "You have been amazing!",
+        "showScoreConclusionLevel": false,
+        "nextLevel": "level1",
+        "steps": [
+          {
+            "id": "step3",
+            "file1": {
+              "label": "Some file",
+              "path": "./files/abcsde.java",
+              "clarificationUrl": "http://www.github.com/blahblahblah"
+            },
+            "file2": {
+              "label": "Another File",
+              "path": "./files/abcsde.java",
+              "clarificationUrl": "http://www.github.com/blahblahblah"
+            },
+            "questions": [
+              {
+                "question": "abcsde.java is much faster than xyz.java (this should be treated as HTML code)",
+                "answers": [
+                  {
+                    "text": "Yay!",
+                    "points": 2
+                  },
+                  {
+                    "text": "Maybe!",
+                    "points": 1
+                  },
+                  {
+                    "text": "Don't know",
+                    "points": 0
+                  },
+                  {
+                    "text": "Maybe not!",
+                    "points": -1
+                  },
+                  {
+                    "text": "Nope!",
+                    "points": -2
+                  }
+                ],
+                "correctAnswer": "Yay!"
+              },
+              {
+                "question": "abcsde.java is much faster than xyz.java (this should be treated as HTML code)",
+                "answers": [
+                  {
+                    "text": "Yay!",
+                    "points": 2
+                  },
+                  {
+                    "text": "Maybe!",
+                    "points": 1
+                  },
+                  {
+                    "text": "Don't know",
+                    "points": 0
+                  },
+                  {
+                    "text": "Maybe not!",
+                    "points": -1
+                  },
+                  {
+                    "text": "Nope!",
+                    "points": -2
+                  }
+                ],
+                "correctAnswer": "Yay!"
+              },
+              {
+                "question": "abcsde.java is much faster than xyz.java (this should be treated as HTML code",
+                "answers": [
+                  {
+                    "text": "Yay!",
+                    "points": 2
+                  },
+                  {
+                    "text": "Maybe!",
+                    "points": 1
+                  },
+                  {
+                    "text": "Don't know",
+                    "points": 0
+                  },
+                  {
+                    "text": "Maybe not!",
+                    "points": -1
+                  },
+                  {
+                    "text": "Nope!",
+                    "points": -2
+                  }
+                ],
+                "correctAnswer": "Yay!"
+              }
+            ]
+          },
+          {
+            "id": "step4",
+            "file1": {
+              "label": "waht",
+              "path": "./files/abcsde.java",
+              "clarificationUrl": "http://www.github.com/blahblahblah"
+            },
+            "file2": {
+              "label": "pu",
+              "path": "./files/abcsde.java",
+              "clarificationUrl": "http://www.github.com/blahblahblah"
+            },
+            "questions": [
+              {
+                "question": "abcsde.java is much slower than xyz.java (this should be treated as HTML code)",
+                "answers": [
+                  {
+                    "text": "Yay!",
+                    "points": 2
+                  },
+                  {
+                    "text": "Maybe!",
+                    "points": 1
+                  },
+                  {
+                    "text": "Don't know",
+                    "points": 0
+                  },
+                  {
+                    "text": "Maybe not!",
+                    "points": -1
+                  },
+                  {
+                    "text": "Nope!",
+                    "points": -2
+                  }
+                ],
+                "correctAnswer": "Yay!"
+              },
+              {
+                "question": "abcsde.java is much slower than xyz.java (this should be treated as HTML code)",
+                "answers": [
+                  {
+                    "text": "Yay!",
+                    "points": 2
+                  },
+                  {
+                    "text": "Maybe!",
+                    "points": 1
+                  },
+                  {
+                    "text": "Don't know",
+                    "points": 0
+                  },
+                  {
+                    "text": "Maybe not!",
+                    "points": -1
+                  },
+                  {
+                    "text": "Nope!",
+                    "points": -2
+                  }
+                ],
+                "correctAnswer": "Yay!"
+              }
+            ]
+          }
+        ]
       }
     ]
   }

@@ -6,6 +6,7 @@ json.level do
   json.next_level @level.next_level
 
   json.steps @level.steps do |step|
+    json.id step.id
     json.identifier step.identifier
     json.file1_name step.file1_name
     json.file1_content step.file1_content
@@ -16,8 +17,10 @@ json.level do
     
     json.questions step.questions do |question|
       json.text question.text
+      json.done current_user.has_done? question
 
       json.answers question.answers do |answer|
+        json.id answer.id
         json.text answer.text
       end
     end

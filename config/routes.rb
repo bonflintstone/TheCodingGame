@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :levels, only: %w(index show)
+    resources :results, only: :create
     get :status, to: 'status#show'
   end
 end

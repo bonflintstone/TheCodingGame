@@ -3,9 +3,21 @@ class User < ApplicationRecord
 
   has_many :results
 
-  # The last level anything was done on
+  # The last step anything was done on
+  def current_step
+    results.map(&:step)
+      .sort_by { |step| [step.level.order, step.order] }
+      .last
+  end
+
   def current_level
-    results.all.map(&:level).max(&:order)
+    current_step.level
+  end
+
+  def has_done?(question)
+    results.any? do |result|
+      result.questions.any? { |q| q == question } 
+    end
   end
 
   # The first level with unanswered questions
