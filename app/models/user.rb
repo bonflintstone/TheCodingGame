@@ -1,43 +1,23 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  has_many :results
+  has_many :results, dependent: :destroy
+  belongs_to :level
+  belongs_to :step
 
-  # The last step anything was done on
-  def current_step
-    results.map(&:step)
-      .sort_by { |step| [step.level.order, step.order] }
-      .last
+  def answered?(question)
+    results.flat_map(&:questions).any? { |q| q == question }
   end
 
-  def current_level
-    current_step.level
+  def done?(level)
+    level.questions.to_a.all?(&method(:done?))
   end
 
-  def has_done?(question)
-    results.any? do |result|
-      result.questions.any? { |q| q == question } 
-    end
-  end
-
-  # The first level with unanswered questions
-  def level_todo
-    return Level.first_level unless current_level
-    return current_level unless has_finished? current_level
-
-    current_level.next
-  end
-
-  def level_status
-    return "new" if current_level.nil? && level_todo.present?
-    return "finished" if current_level.present? && level_todo.nil?
-    return "inLevel" if current_level == level_todo
-    return "betweenLevels" if current_level != level_todo
-  end
-
-  def has_finished?(level)
-    level.questions.to_a.all? do |question|
-      results.any? { |result| result.question.id == question.id }
+  def update_progress(last_step_finished)
+    if steps.next.present?
+      update(step: last_step_finished.next)
+    else
+      update(step: null, level: last_step_finished.level.next)
     end
   end
 end

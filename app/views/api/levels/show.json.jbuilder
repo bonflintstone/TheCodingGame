@@ -14,10 +14,10 @@ json.level do
     json.file2_name step.file2_name
     json.file2_content step.file2_content
     json.file2_clarification step.file2_clarification
-    
+
     json.questions step.questions do |question|
       json.text question.text
-      json.done current_user.has_done? question
+      json.done current_user.answered? question
 
       json.answers question.answers do |answer|
         json.id answer.id

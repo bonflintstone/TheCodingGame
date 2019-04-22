@@ -1,26 +1,25 @@
 <template>
   <v-card>
-    <v-card-text v-if="status.currentLevel">
-      <template v-if="status.levelStatus === 'new'">
+    <v-card-text v-if="!loading">
+      <template v-if="status.levelNumber == null">
         <p>{{ status.gameIntroMessage }}</p>
-        <v-btn :to="`/levels/${status.currentLevel.id}`">
+        <v-btn :to="`/levels/${status.levelNumber.id}`">
           Get started with the first level!
         </v-btn>
       </template>
-      <template v-if="status.levelStatus === 'finished'">
-        <p>{{ status.gameConclusionMessage }}</p>
-      </template>
-      <template v-if="status.levelStatus === 'inLevel'">
+
+      <template v-if="status.stepNumber != null">
         You still got work todo in level
 
-        <v-btn :to="`/levels/${status.currentLevel.id}`">
-          {{ status.currentLevel.name }}
+        <v-btn :to="`/levels/${status.levelNumber}`">
+          {{ status.levelNumber.name }}
         </v-btn>
       </template>
-      <template v-if="status.levelStatus === 'betweenLevels'">
+
+      <template v-if="status.stepNumber == null">
         Get started with level
-        <v-btn :to="`/levels/${status.currentLevel.id}`">
-          {{ status.currentLevel.name }}
+        <v-btn :to="`/levels/${status.levelNumber}`">
+          {{ status.levelNumber.name }}
         </v-btn>
       </template>
     </v-card-text>
@@ -33,11 +32,16 @@ import { getLevels, getStatus } from '../services/api'
 export default {
   data: () => ({
     levels: [],
-    status: {}
+    status: {},
+    loading: true
   }),
   mounted() {
-    getLevels().then(result => (this.levels = result.levels))
-    getStatus().then(result => (this.status = result.status))
+    Promise.all(getStatus, getLevels)
+      .then((statusData, levelsData) => {
+        this.status = statusData.status
+        this.levels = levelsData.levels
+      })
+      .then(() => (this.loading = false))
   }
 }
 </script>

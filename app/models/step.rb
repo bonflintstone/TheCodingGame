@@ -7,7 +7,6 @@ class Step < ApplicationRecord
   end
 
   def next
-    level.steps.find { |s| s.order == order + 1 } ||
-      level.next&.steps&.find { |s| s.order == 0 }
+    level.steps.find { |s| s.order == order + 1 }
   end
 end

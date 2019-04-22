@@ -1,8 +1,7 @@
 class Importer
   def initialize(config_file)
-    @game_config = JSON
-      .parse(File.read(config_file))
-      .nested_under_indifferent_access[:game]
+    @game_config = JSON.parse(File.read(config_file))
+                       .nested_under_indifferent_access[:game]
   end
 
   def load

@@ -1,6 +1,8 @@
 <template>
   <Level v-if="level" :level="level" />
-  <h2 v-else>Loading</h2>
+  <h2 v-else>
+    Loading
+  </h2>
 </template>
 
 <script>
@@ -10,15 +12,15 @@ import { getLevel } from '../services/api'
 
 export default {
   components: { Level },
+  data: () => ({
+    level: null,
+    currentStage: {}
+  }),
   computed: {
     levelNumber() {
       return this.$route.params.levelNumber
     }
   },
-  data: () => ({
-    level: null,
-    currentStage: {}
-  }),
   watch: {
     levelNumber: {
       immediate: true,
