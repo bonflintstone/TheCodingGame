@@ -2,8 +2,8 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   has_many :results, dependent: :destroy
-  belongs_to :level
-  belongs_to :step
+  belongs_to :level, required: false
+  belongs_to :step, required: false
 
   def answered?(question)
     results.flat_map(&:questions).any? { |q| q == question }
