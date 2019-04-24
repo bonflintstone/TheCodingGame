@@ -3,24 +3,26 @@
     <v-card-text v-if="!loading">
       <template v-if="status.levelNumber == null">
         <p>{{ status.gameIntroMessage }}</p>
-        <v-btn :to="`/levels/${status.levelNumber.id}`">
+        <v-btn :to="`/levels/${levelIdentifier}`">
           Get started with the first level!
         </v-btn>
       </template>
 
-      <template v-if="status.stepNumber != null">
-        You still got work todo in level
+      <template v-else>
+        <template v-if="status.stepNumber != null">
+          You still got work todo in level
 
-        <v-btn :to="`/levels/${status.levelNumber}`">
-          {{ status.levelNumber.name }}
-        </v-btn>
-      </template>
+          <v-btn :to="`/levels/${levelIdentifier}`">
+            {{ currentLevelNumber }}
+          </v-btn>
+        </template>
 
-      <template v-if="status.stepNumber == null">
-        Get started with level
-        <v-btn :to="`/levels/${status.levelNumber}`">
-          {{ status.levelNumber.name }}
-        </v-btn>
+        <template v-if="status.stepNumber == null">
+          Get started with level
+          <v-btn :to="`/levels/${levelIdentifier}`">
+            {{ currentLevelNumber }}
+          </v-btn>
+        </template>
       </template>
     </v-card-text>
   </v-card>
@@ -35,9 +37,17 @@ export default {
     status: {},
     loading: true
   }),
+  computed: {
+    currentLevelNumber() {
+      return this.status.levelNumber || 0
+    },
+    levelIdentifier() {
+      return this.status.levelIdentifier
+    }
+  },
   mounted() {
-    Promise.all(getStatus, getLevels)
-      .then((statusData, levelsData) => {
+    Promise.all([getStatus(), getLevels()])
+      .then(([statusData, levelsData]) => {
         this.status = statusData.status
         this.levels = levelsData.levels
       })

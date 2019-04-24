@@ -5,7 +5,7 @@ ruby '2.6.0'
 
 gem 'bundler', '>=2.0.0'
 gem 'pg'
-gem 'rails', '~> 5.2.2'
+gem 'rails', '~> 5.2.3'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 3.11'
 gem 'webpacker'
