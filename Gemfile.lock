@@ -45,7 +45,7 @@ GEM
     arel (9.0.0)
     bcrypt (3.1.12)
     bindex (0.7.0)
-    bootsnap (1.4.3)
+    bootsnap (1.4.4)
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
@@ -168,7 +168,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
-  bundler (>= 2.0.0)
+  bundler (= 1.17.3)
   byebug
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
@@ -186,4 +186,4 @@ RUBY VERSION
    ruby 2.6.0p0
 
 BUNDLED WITH
-   2.0.1
+   1.17.3
