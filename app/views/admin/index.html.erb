@@ -1,0 +1,33 @@
+<h1>Admin</h1>
+
+Users:
+
+<% @users.each do |user| %> 
+  <h2><%= user.email %></h2>
+
+  Level Number:
+  <%= user.level&.order || 'Not started' %>
+
+  Step Number:
+  <%= user.step&.order || 'Not started' %>
+
+  <% @levels.each do |level| %>
+    <div>
+      <h3>Level <%= level.order %>:</h3>
+      Level Points: <%= current_user.level_score(level) %>
+      <% level.steps.order(:order).each do |step| %>
+        <div>
+          <h4>Step <%= step.order %>:</h4>
+          Step Points: <%= current_user.step_score(step) %>
+          <% step.questions.order(:order).each do |question| %>
+            <div>
+              <h5>Question <%= question.text %>:</h5>
+              Answer: <%= current_user.question_answer(question).text %>
+              Points: <%= current_user.question_score(question) %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

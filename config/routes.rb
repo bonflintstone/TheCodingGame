@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'login', to: 'user_sessions#new', as: :login
   get 'logout', to: 'user_sessions#destroy', as: :logout
+  get 'admin' , to: 'admin#index'
 
   root to: redirect('/game')
 

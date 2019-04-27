@@ -11,7 +11,23 @@ class User < ApplicationRecord
 
   def done?(level)
     level.questions.to_a.all?(&method(:done?))
- j end
+  end
+
+  def level_score(level)
+    level.steps.sum(&method(:step_score))
+  end
+
+  def step_score(step)
+    step.questions.sum(&method(:question_score))
+  end
+
+  def question_score(question)
+    question_answer(question).points
+  end
+
+  def question_answer(question)
+    (Answer.where(question: question).to_a & results.flat_map(&:answers)).first
+  end
 
   def update_progress(last_step_finished)
     new_step = last_step_finished.next
