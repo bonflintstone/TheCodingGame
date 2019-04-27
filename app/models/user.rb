@@ -11,13 +11,12 @@ class User < ApplicationRecord
 
   def done?(level)
     level.questions.to_a.all?(&method(:done?))
-  end
+ j end
 
   def update_progress(last_step_finished)
-    if steps.next.present?
-      update(step: last_step_finished.next)
-    else
-      update(step: null, level: last_step_finished.level.next)
-    end
+    new_step = last_step_finished.next
+    new_level = new_step ? new_step.level : last_step_finished.level.next
+
+    update(step: new_step, level: new_level, finished: new_level.nil?)
   end
 end

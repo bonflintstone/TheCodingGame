@@ -1,9 +1,14 @@
 <template>
   <v-app light>
+    <Navbar />
     <router-view />
   </v-app>
 </template>
 
 <script>
-export default {}
+import Navbar from './components/navbar'
+
+export default {
+  components: { Navbar }
+}
 </script>

@@ -5,7 +5,7 @@ json.level do
   json.show_score_conclusion_level @level.show_score_conclusion_level
   json.next_level @level.next_level
 
-  json.steps @level.steps do |step|
+  json.steps @level.steps.order(:order) do |step|
     json.id step.id
     json.identifier step.identifier
     json.file1_name step.file1_name
@@ -15,7 +15,7 @@ json.level do
     json.file2_content step.file2_content
     json.file2_clarification step.file2_clarification
 
-    json.questions step.questions do |question|
+    json.questions step.questions.order(:order) do |question|
       json.text question.text
       json.done current_user.answered? question
 

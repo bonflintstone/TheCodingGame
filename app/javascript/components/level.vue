@@ -18,6 +18,10 @@
       </template>
       <template v-if="stepNumber >= stepCount">
         {{ level.level_conclusion_message }}
+
+        <v-btn to="/">
+          Back to Menu
+        </v-btn>
       </template>
     </v-card-text>
   </v-card>
@@ -38,7 +42,7 @@ export default {
   },
   data: () => ({
     status: {},
-    stepNumber: -1
+    stepNumber: NOT_STARTED
   }),
   computed: {
     currentStep() {
@@ -48,15 +52,10 @@ export default {
       return this.level.steps.length
     }
   },
-  watch: {
-    level: {
-      immediate: true,
-      handler() {
-        getStatus()
-          .then(data => Vue.set(this, 'status', data.status))
-          .then(() => (this.stepNumber = this.status.stepNumber || NOT_STARTED))
-      }
-    }
+  mounted() {
+    getStatus()
+      .then(data => Vue.set(this, 'status', data.status))
+      .then(() => (this.stepNumber = this.status.stepNumber || NOT_STARTED))
   },
   methods: {
     submit(answerIds) {

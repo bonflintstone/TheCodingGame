@@ -1,11 +1,13 @@
 <template>
   <div>
-    <Drawer v-model="drawerOpen" />
     <v-toolbar>
-      <v-toolbar-side-icon @click="() => drawerOpen = true" />
       <v-toolbar-title>
         The Game
       </v-toolbar-title>
+
+      <v-btn to="/">
+        Menu
+      </v-btn>
 
       <v-spacer />
 
@@ -17,10 +19,7 @@
 </template>
 
 <script>
-import Drawer from './drawer'
-
 export default {
-  components: { Drawer },
   props: {
     value: Boolean
   },

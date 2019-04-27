@@ -20,7 +20,6 @@
         "levelIntroMessage": "First level!",
         "levelConclusionMessage": "You have been amazing!",
         "showScoreConclusionLevel": false,
-        "nextLevel": "level1",
         "steps": [
           {
             "id": "step0",
@@ -189,7 +188,6 @@
         "levelIntroMessage": "First level!",
         "levelConclusionMessage": "You have been amazing!",
         "showScoreConclusionLevel": false,
-        "nextLevel": "level1",
         "steps": [
           {
             "id": "step3",

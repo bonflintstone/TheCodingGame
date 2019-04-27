@@ -6,4 +6,5 @@ json.status do
   json.levelNumber current_user.level&.order
   json.levelIdentifier (current_user.level || Level.first_level).identifier
   json.stepNumber current_user.step&.order
+  json.finished current_user.finished?
 end
