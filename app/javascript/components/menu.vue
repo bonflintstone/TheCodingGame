@@ -2,11 +2,11 @@
   <v-card>
     <v-card-text v-if="!loading">
       <template v-if="status.finished">
-        <p>{{ status.gameConclusionMessage }}</p>
+        <div v-html="status.gameConclusionMessage" />
       </template>
 
       <template v-else-if="status.levelNumber == null">
-        <p>{{ status.gameIntroMessage }}</p>
+        <div v-html="status.gameIntroMessage" />
         <v-btn :to="`/levels/${levelIdentifier}`">
           Get started with the first level!
         </v-btn>

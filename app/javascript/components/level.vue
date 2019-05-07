@@ -3,7 +3,7 @@
     <v-card-title> Level {{ level.identifier }} </v-card-title>
     <v-card-text>
       <template v-if="stepNumber === -1">
-        {{ level.level_intro_message }}
+        <div v-html="level.level_intro_message" />
         <v-btn @click="stepNumber = 0">
           Start
         </v-btn>
@@ -17,7 +17,7 @@
         <Questions :questions="currentStep.questions" @submit="submit" />
       </template>
       <template v-if="stepNumber >= stepCount">
-        {{ level.level_conclusion_message }}
+        <div v-html="level.level_conclusion_message" />
 
         <v-btn to="/">
           Back to Menu
