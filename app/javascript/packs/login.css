@@ -1,0 +1,26 @@
+body {
+  background: #DDDDDD;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 40px;
+}
+
+.login-container {
+  width: 400px;
+  padding: 20px;
+  margin: 5% auto 5%;
+  background: #444444;
+  border-radius: 10px;
+  color: #FFF;
+}
+
+input {
+  padding: 5px;
+  margin: 10px;
+}
+
+[type='submit'] {
+  cursor: pointer;
+}
