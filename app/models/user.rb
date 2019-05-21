@@ -2,8 +2,8 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   has_many :results, dependent: :destroy
-  belongs_to :level, required: false
-  belongs_to :step, required: false
+  belongs_to :level, optional: true
+  belongs_to :step, optional: true
 
   def answered?(question)
     results.flat_map(&:questions).any? { |q| q == question }
@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def question_score(question)
-    question_answer(question).points
+    question_answer(question)&.points.to_i
   end
 
   def question_answer(question)
