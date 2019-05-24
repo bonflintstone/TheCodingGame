@@ -9,17 +9,28 @@ import 'diff2html/dist/diff2html.min.css'
 
 export default {
   props: {
+    fileName1: String,
+    fileName2: String,
     source1: String,
     source2: String
   },
   computed: {
     diff() {
-      return createTwoFilesPatch('Before', 'After', this.source1, this.source2)
+      return createTwoFilesPatch(
+        this.fileName1,
+        this.fileName2,
+        this.source1,
+        this.source2,
+        null,
+        null,
+        {
+          context: 999999
+        }
+      )
     },
     diffHtml() {
       return Diff2Html.getPrettyHtml(this.diff, {
         inputFormat: 'diff',
-        showFiles: false,
         matching: 'lines',
         outputFormat: 'side-by-side'
       })

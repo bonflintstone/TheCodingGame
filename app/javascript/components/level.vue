@@ -11,6 +11,8 @@
       <template v-if="stepNumber >= 0 && stepNumber < stepCount">
         <p>Step {{ stepNumber + 1 }} out of {{ stepCount }}</p>
         <Diff
+          :fileName1="currentStep.file1_name"
+          :fileName2="currentStep.file2_name"
           :source1="currentStep.file1_content"
           :source2="currentStep.file2_content"
         />
