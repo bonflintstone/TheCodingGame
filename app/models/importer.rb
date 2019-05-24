@@ -12,6 +12,8 @@ class Importer
     Rails.logger.error("Could not find #{path} in zip file") if file.blank?
 
     file.get_input_stream.read
+  rescue NoMethodError
+    throw StandardError.new("Could not find file #{path} in zip file")
   end
 
   def load

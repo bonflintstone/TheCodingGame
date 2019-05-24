@@ -15,3 +15,11 @@ Careful! This will delete all current level, including users and progress.
   <br />
   <%= submit_tag %>
 <% end %>
+
+<% if @error  %>
+  <div>
+    <h3>Error: <%= @error.class.name %></h3>
+
+    <%= @error.message %>
+  </div>
+<% end %>

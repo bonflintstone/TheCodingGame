@@ -8,7 +8,9 @@ class AdminController < ApplicationController
 
   def create
     Importer.new(params[:config].tempfile).load
-
+  rescue StandardError => e
+    @error = e
+  ensure
     render :index
   end
 end
