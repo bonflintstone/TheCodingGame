@@ -12,7 +12,8 @@ export default {
     fileName1: String,
     fileName2: String,
     source1: String,
-    source2: String
+    source2: String,
+    unified: Boolean
   },
   computed: {
     diff() {
@@ -32,7 +33,7 @@ export default {
       return Diff2Html.getPrettyHtml(this.diff, {
         inputFormat: 'diff',
         matching: 'lines',
-        outputFormat: 'side-by-side'
+        outputFormat: this.unified ? 'line-by-line' : 'side-by-side'
       })
     }
   }

@@ -1,6 +1,8 @@
 <template>
-  <v-card>
-    <v-card-title> Level {{ level.identifier }} </v-card-title>
+  <v-card class="pa-5">
+    <v-card-title>
+      <h2>Level {{ level.identifier }}</h2>
+    </v-card-title>
     <v-card-text>
       <template v-if="stepNumber === -1">
         <div v-html="level.level_intro_message" />
@@ -10,11 +12,13 @@
       </template>
       <template v-if="stepNumber >= 0 && stepNumber < stepCount">
         <p>Step {{ stepNumber + 1 }} out of {{ stepCount }}</p>
+        <v-switch v-model="unifiedDiff" label="Unified Diff View" />
         <Diff
           :fileName1="currentStep.file1_name"
           :fileName2="currentStep.file2_name"
           :source1="currentStep.file1_content"
           :source2="currentStep.file2_content"
+          :unified="unifiedDiff"
         />
         <Questions :questions="currentStep.questions" @submit="submit" />
       </template>
@@ -44,7 +48,8 @@ export default {
   },
   data: () => ({
     status: {},
-    stepNumber: NOT_STARTED
+    stepNumber: NOT_STARTED,
+    unifiedDiff: false
   }),
   computed: {
     currentStep() {

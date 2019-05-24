@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-card-text v-if="!loading">
+    <v-card-text v-if="!loading" class="pa-5">
       <template v-if="status.finished">
         <div v-html="status.gameConclusionMessage" />
       </template>
