@@ -9,6 +9,7 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
+gem 'rubyzip'
 gem 'sorcery'
 gem 'webpacker'
 

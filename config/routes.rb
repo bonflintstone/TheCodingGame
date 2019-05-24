@@ -3,14 +3,15 @@ Rails.application.routes.draw do
 
   get 'login', to: 'user_sessions#new', as: :login
   get 'logout', to: 'user_sessions#destroy', as: :logout
-  get 'admin' , to: 'admin#index'
+  get 'admin', to: 'admin#index'
+  post 'admin', to: 'admin#create'
 
   root to: redirect('/game')
 
   resource :game, only: :show
 
   namespace :api do
-    resources :levels, only: %w(index show)
+    resources :levels, only: %w[index show]
     resources :results, only: :create
     get :status, to: 'status#show'
   end
