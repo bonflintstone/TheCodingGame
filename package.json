@@ -18,5 +18,8 @@
     "material-design-icons-iconfont": "^4.0.5",
     "prettier": "^1.16.4",
     "webpack-dev-server": "2.11.2"
+  },
+  "resolutions": {
+    "fstream": "1.0.12"
   }
 }
