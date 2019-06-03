@@ -21,11 +21,10 @@
         <v-card>
           <v-card-title>
             {{ question.text }}
-            {{ question.done }}
           </v-card-title>
 
           <v-card-text>
-            <v-radio-group v-model="answers[i]">
+            <v-radio-group v-model="answers[i]" :disabled="question.done">
               <v-radio
                 v-for="(answer, j) in question.answers"
                 :key="`${question.text} ${answer.text} content ${j}`"
