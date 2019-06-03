@@ -77,8 +77,7 @@ class Importer
       db_question = Question.create!(
         step: db_step,
         order: index,
-        text: question[:question],
-        correct_answer: question[:correctAnswer]
+        text: question[:question]
       )
 
       import_answers(question, db_question)
