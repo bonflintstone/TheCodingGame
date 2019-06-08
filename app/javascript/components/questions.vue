@@ -41,7 +41,14 @@
             <v-btn v-if="i < questions.length - 1" @click="progress = i + 2">
               Next
             </v-btn>
-            <v-btn v-else color="primary" @click="$emit('submit', answers)">
+            <v-btn
+              v-else
+              :disabled="
+                questions.some((_, index) => typeof answers[index] !== 'number')
+              "
+              color="primary"
+              @click="$emit('submit', answers)"
+            >
               Submit
             </v-btn>
           </v-card-actions>
