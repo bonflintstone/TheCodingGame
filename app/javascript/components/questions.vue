@@ -32,7 +32,10 @@
                 :value="answer.id"
               />
             </v-radio-group>
-            <v-text-field v-model="comments[i]" />
+            <v-textarea
+              label="Got a comment? Please leave it here."
+              v-model="comments[i]"
+            />
           </v-card-text>
 
           <v-card-actions>
