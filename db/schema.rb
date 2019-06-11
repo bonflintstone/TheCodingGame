@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_27_090303) do
+ActiveRecord::Schema.define(version: 2019_06_11_091548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answer_results", force: :cascade do |t|
+    t.bigint "answer_id"
+    t.bigint "result_id"
+    t.string "comment"
+    t.index ["answer_id"], name: "index_answer_results_on_answer_id"
+    t.index ["result_id"], name: "index_answer_results_on_result_id"
+  end
 
   create_table "answers", force: :cascade do |t|
     t.string "text"
@@ -22,13 +30,6 @@ ActiveRecord::Schema.define(version: 2019_04_27_090303) do
     t.datetime "updated_at", null: false
     t.bigint "question_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
-  end
-
-  create_table "answers_results", id: false, force: :cascade do |t|
-    t.bigint "result_id", null: false
-    t.bigint "answer_id", null: false
-    t.index ["answer_id"], name: "index_answers_results_on_answer_id"
-    t.index ["result_id"], name: "index_answers_results_on_result_id"
   end
 
   create_table "game_configs", force: :cascade do |t|

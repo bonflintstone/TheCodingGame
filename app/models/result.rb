@@ -1,6 +1,7 @@
 class Result < ApplicationRecord
   belongs_to :user
-  has_and_belongs_to_many :answers
+  has_many :answer_results, dependent: :destroy
+  has_many :answers, through: :answer_results
 
   def questions
     answers.map(&:question)

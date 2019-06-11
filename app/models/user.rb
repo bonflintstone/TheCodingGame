@@ -25,6 +25,13 @@ class User < ApplicationRecord
     question_answer(question)&.points.to_i
   end
 
+  def answer_result(question)
+    AnswerResult
+      .includes(:result, answer: :question)
+      .where(results: { user: self }, answers: { question: question })
+      .last
+  end
+
   def question_answer(question)
     (Answer.where(question: question).to_a & results.flat_map(&:answers)).first
   end

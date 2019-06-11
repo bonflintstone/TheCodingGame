@@ -17,7 +17,7 @@ class Importer
   end
 
   def load
-    [GameConfig, Level, Step, Question, Answer, User, Result]
+    [GameConfig, Level, Step, Question, Answer, User, Result, AnswerResult]
       .map(&:destroy_all)
 
     import_users

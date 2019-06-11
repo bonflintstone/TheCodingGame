@@ -65,8 +65,8 @@ export default {
       .then(() => (this.stepNumber = this.status.stepNumber || NOT_STARTED))
   },
   methods: {
-    submit(answerIds) {
-      saveResult(this.currentStep.id, answerIds).then(
+    submit(answerIds, comments) {
+      saveResult(this.currentStep.id, answerIds, comments).then(
         () => (this.stepNumber += 1)
       )
     }

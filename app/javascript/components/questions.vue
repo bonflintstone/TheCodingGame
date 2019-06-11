@@ -32,6 +32,7 @@
                 :value="answer.id"
               />
             </v-radio-group>
+            <v-text-field v-model="comments[i]" />
           </v-card-text>
 
           <v-card-actions>
@@ -47,7 +48,7 @@
                 questions.some((_, index) => typeof answers[index] !== 'number')
               "
               color="primary"
-              @click="$emit('submit', answers)"
+              @click="$emit('submit', answers, comments)"
             >
               Submit
             </v-btn>
@@ -65,7 +66,8 @@ export default {
   },
   data: () => ({
     progress: 1,
-    answers: []
+    answers: [],
+    comments: []
   }),
   watch: {
     questions() {

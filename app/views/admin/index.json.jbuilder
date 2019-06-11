@@ -14,7 +14,8 @@ json.users @users do |user|
       json.questions step.questions do |question|
         json.text question.text
 
-        json.answer user.question_answer(question)&.text
+        json.answer user.answer_result(question)&.answer&.text
+        json.comment user.answer_result(question)&.comment
         json.points user.question_score(question)
       end
     end

@@ -15,10 +15,10 @@ export const getLevel = id =>
 export const getStatus = () =>
   fetch('/api/status').then(response => response.json())
 
-export const saveResult = (step_id, answer_ids) =>
+export const saveResult = (step_id, answer_ids, comments) =>
   fetch('/api/results', {
     headers,
     method: 'POST',
-    body: JSON.stringify({ step_id, answer_ids }),
+    body: JSON.stringify({ step_id, answer_ids, comments }),
     credentials: 'same-origin'
   })
