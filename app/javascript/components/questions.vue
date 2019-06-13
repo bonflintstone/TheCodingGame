@@ -33,8 +33,8 @@
               />
             </v-radio-group>
             <v-textarea
-              label="Got a comment? Please leave it here."
               v-model="comments[i]"
+              label="Got a comment? Please leave it here."
             />
           </v-card-text>
 
@@ -76,6 +76,7 @@ export default {
     questions() {
       this.progress = 1
       this.answers = []
+      this.comments = []
     }
   }
 }
