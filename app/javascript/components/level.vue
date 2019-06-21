@@ -20,6 +20,12 @@
           :source2="currentStep.file2_content"
           :unified="unifiedDiff"
         />
+        <v-btn :href="currentStep.file1_clarification" target="_blank">
+          Clarification for "Before"
+        </v-btn>
+        <v-btn :href="currentStep.file2_clarification" target="_blank">
+          Clarification for "After"
+        </v-btn>
         <Questions :questions="currentStep.questions" @submit="submit" />
       </template>
       <template v-if="stepNumber >= stepCount">
