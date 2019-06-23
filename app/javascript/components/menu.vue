@@ -8,23 +8,23 @@
       <template v-else-if="status.levelNumber == null">
         <div v-html="status.gameIntroMessage" />
         <v-btn :to="`/levels/${levelIdentifier}`">
-          Get started with the first level!
+          Get started with Level
+          {{ levelIdentifier }}
         </v-btn>
       </template>
 
       <template v-else>
         <template v-if="status.stepNumber != null">
-          You still got work todo in level
-
           <v-btn :to="`/levels/${levelIdentifier}`">
-            {{ currentLevelNumber }}
+            You still got work todo in Level
+            {{ levelIdentifier }}
           </v-btn>
         </template>
 
         <template v-if="status.stepNumber == null">
-          Get started with level
           <v-btn :to="`/levels/${levelIdentifier}`">
-            {{ currentLevelNumber }}
+            Get started with Level
+            {{ levelIdentifier }}
           </v-btn>
         </template>
       </template>

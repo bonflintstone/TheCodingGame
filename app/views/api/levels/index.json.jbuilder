@@ -3,5 +3,4 @@ json.levels @levels do |level|
   json.level_intro_message level.level_intro_message
   json.level_conclusion_message level.level_conclusion_message
   json.show_score_conclusion_level level.show_score_conclusion_level
-  json.next_leves level.next_level
 end
