@@ -15,6 +15,7 @@ json.users @users do |user|
         json.text question.text
 
         json.answer user.answer_result(question)&.answer&.text
+        json.answerTimestamp user.answer_result(question)&.created_at.to_i
         json.comment user.answer_result(question)&.comment
         json.points user.question_score(question)
       end

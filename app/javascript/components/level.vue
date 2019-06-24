@@ -21,10 +21,7 @@
           :unified="unifiedDiff"
         />
         <v-btn :href="currentStep.file1_clarification" target="_blank" flat>
-          Clarification for Left Snippet
-        </v-btn>
-        <v-btn :href="currentStep.file2_clarification" target="_blank" flat>
-          Clarification for Right Snippet
+          Clarification link
         </v-btn>
         <br />
         <Questions :questions="currentStep.questions" @submit="submit" />

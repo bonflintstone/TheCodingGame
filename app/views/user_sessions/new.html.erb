@@ -1,6 +1,8 @@
 <%= stylesheet_pack_tag 'management' %>
 
-<h1>The Coding Game</h1>
+<h1>
+  <%= GameConfig.get('game_name') || 'The Coding Game' %>
+</h1>
 
 <div class="login-container">
   <h2>Log In</h2>
