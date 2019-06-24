@@ -9,7 +9,7 @@ json.users @users do |user|
 
     json.steps level.steps do |step|
       json.id step.identifier
-      json.points = user.step_score(step)
+      json.points user.step_score(step)
 
       json.questions step.questions do |question|
         json.text question.text
