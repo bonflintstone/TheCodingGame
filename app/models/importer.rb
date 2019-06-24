@@ -85,9 +85,10 @@ class Importer
   end
 
   def import_answers(question, db_question)
-    question.fetch(:answers, []).each do |answer|
+    question.fetch(:answers, []).each do |answer, index|
       Answer.create!(
         text: answer[:text],
+        order: index,
         points: answer[:points],
         question: db_question
       )
