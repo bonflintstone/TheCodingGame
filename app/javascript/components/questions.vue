@@ -22,7 +22,6 @@
           <v-card-title>
             {{ question.text }}
           </v-card-title>
-
           <v-card-text>
             <v-radio-group v-model="answers[i]" :disabled="question.done">
               <v-radio
@@ -32,6 +31,9 @@
                 :value="answer.id"
               />
             </v-radio-group>
+            <span class="caption red--text">
+              All questions are mandatory
+            </span>
             <v-textarea
               v-model="comments[i]"
               label="Got a comment? Please leave it here."
