@@ -22,8 +22,8 @@ export default {
         this.fileName2,
         this.source1,
         this.source2,
-        null,
-        null,
+        '',
+        '',
         {
           context: 999999
         }
@@ -39,3 +39,9 @@ export default {
   }
 }
 </script>
+
+<style lang="css">
+.d2h-moved-tag {
+  display: none !important
+}
+</style>
